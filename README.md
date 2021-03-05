@@ -1,16 +1,36 @@
-# An Analysis of Kickstarter Campaigns
-Performing analysis on Kickstarter data to uncover trends.
-This project was an analysis conducted to understand the success and failures of kickstarter campaigns using publicly available data. 
-While performing this analysis, the focus centered around theater campaigns on the website. We found that theater campaigns in Great Britain were more successful than US based campaigns. While the US had more campaigns (912), they had a 58% success rate comapred to Great Britains 72% success rate with 359 campaigns. 
----
-![](GB%20Musical%20Boxplot.png)
----
-As seen in the boxplot above, there is a large range in the boxplots for goals, but a much smaller one with the ammounts pledged. These varying spreads signify the difficulty that many people experience when raising money on kickstarter compared to their goals. Given that the bottom quartile on the pledged boxplot is on the x-axis, we can see that many kickstarter campaigns do not raise any money. The mean goal of successful campaigns is $5,049 compared to $10,554 with medians at $3,000 and $5,000 respectively. Given the very high Standard deviations of these ($7,749 and $21,968 respectively), we do not think the mean is very relevant due to large outliers. However, the median still shows that campaigns with larger goals tend to perform worse. 
----
-![](Parent%20Category%20Outcomes.png)
----
-When looking at the above stacked cluster column chart, you can see that theater campaigns are very popular on Kickstarter and are fairly successful. These are clearly the most popular campaigns to be run on Kickstarter.
----
-![](TheaterOutcomesBasedOnLaunchDate.png)
----
-The above picture shows that the time of year that a Theater campaign is launched in has a impact on the success of the campaign. The image clearly shows that campaigns launched in May are the most successful followed by the months June and July. Using this data, it would be reccomended to launch theater campaigns in the early summer when they have the highest likelihood of success. It's highly reccomended that campaigns not be launched in December as the chances of success are almost the same as failure. 
+# Kickstarting with Excel
+
+## Overview of Project
+Louise has launched a campaign on Kickstarter to raise money for her play "Fever". She came close to her fundraising goal in a short amount of time and would like to know how she fared compared to other campagins. She pulled kickstarter data to understand the differences between her campaign and others.
+
+### Purpose
+The purpose of this analysis is to understand how successful Louise was in her campaign compared to other play projects based on the launch date of the campaign and the goal for amount raised. 
+
+## Analysis and Challenges
+When looking at the data, there are few things that come to mind immediately.The first of which is that the Category and Subcategory are in the same column. This creates issues because it does not allow you to fully understand the outcomes of campaigns focused on Plays. To solve this problem, I used the "Text to Columns" button under the data ribbon. This allowed to separate the categories and subcategories.The next issue we encounted was that the dates were in Linux form, which is a format that does not allow a normal eye to understand. To solve this issue we used the following formula: =(((J2/60)/60)/24)+DATE(1970,1,1). This gave us useful dates that we could then use to analyze. Once these minor issues were solved, we were able to pivot the data and create charts to visualize the outcomes of campaigns for plays. 
+![](Text_to_Column.png)
+
+### Analysis of Outcomes Based on Launch Date
+Looking at the chart for "Theater Outcomes Based on Launch Date", we can see that most campaigns (167) are launched in May. Coincidentally, this also the month with the highest success rate of 67%. June follows the May as the second most prevelant (153) and successful (65%). 
+![](Theater_Outcomes_vs_Launch.png)
+
+### Analysis of Outcomes Based on Goals
+When Looking at the "Outcomes Based on Goals", one can quickly see that the lower the amount raised, the more likely that a campaign will be successful. The most common ammount raised is in the $1000 to $5000 range where there were 534 campaigns with a 73% success rate. In the dataset, there are not any plays that were cancelled for any amount, which is interesting because there are in other categories.
+![](Outcomes_vs_Goal.png)
+
+### Challenges and Difficulties Encountered
+Some difficulties that could arise with this dataset are that there are many different years in the dataset and there can be different outcomes based on year. There are forces always happening in any given year like economical, political, etc. that could effect any given month in a certain year.
+
+## Results
+
+- What are two conclusions you can draw about the Outcomes based on Launch Date?
+From the "Outcomes Based on Launch Date" chart, you can conclude that the summer months are the most popular and succesful time of year to launch a campaign for plays. Secondly, you can conclude that are very small amount of campaigns are cancelled any time of year so they are either succesful or fail. 
+
+- What can you conclude about the Outcomes based on Goals?
+Looking at the "Outcomes Based on Goals", you can conclude quickly that the amount of money raised is directly correlated to the chance of succesful for any given campaign with lower amount raised being much more succesful.
+
+- What are some limitations of this dataset?
+The biggest limitation of this dataset is that there are less datapoints for campaigns with higher goals and thus may be skewed in the short term due to lack of datapoints. Another area of concern is that these are not all in the same currency and thus could be skewing the goals and amount raised to real terms.
+
+- What are some other possible tables and/or graphs that we could create?
+Some other tables or graphs that could be created are based on the bar graphs based on country to understand how succesful different countries are, a graph that shows the average donation per month to understand the appetite for giving, and a line graph based on deadline instead of start date.
